@@ -1,2 +1,12 @@
-<h1>Codes#show</h1>
-<p>Find me in app/views/codes/show.html.erb</p>
+<div>
+	<div><h2><%= @code.code_name %></h2></div>
+	<div>
+		<pre class="prettyprint">
+			<code>
+				<%= @code.file.force_encoding("UTF-8") %><br>
+			</code>
+		</pre>
+		<%= @code.codes_explanation %><br>
+		<%= @code.language %>
+	</div>
+</div>

@@ -1,2 +1,19 @@
-<h1>Codes#index</h1>
-<p>Find me in app/views/codes/index.html.erb</p>
+<div>
+	<div>
+		<h2>CodeList</h2>
+	</div>
+	<div class="list-group">
+		<table class="table">
+			<% @codes.each do |code| %>
+				<div class="list-group-item list-group-item-action">
+					<tr>
+						<td>
+							<h4><%= code.code_name %></h4><br>
+							<%= code.language %>
+						</td>
+					</tr>
+				</div>
+			<% end %>
+		</table>
+	</div>
+</div>

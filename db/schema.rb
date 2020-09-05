@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_30_034146) do
+ActiveRecord::Schema.define(version: 2020_09_04_102524) do
 
   create_table "codes", force: :cascade do |t|
     t.string "code_name"
@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 2020_08_30_034146) do
     t.string "language"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.binary "file"
+    t.string "filename"
   end
 
   create_table "languages", force: :cascade do |t|
