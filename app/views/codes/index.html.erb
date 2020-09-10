@@ -1,19 +1,32 @@
-<div>
-	<div>
-		<h2>CodeList</h2>
-	</div>
-	<div class="list-group">
-		<table class="table">
-			<% @codes.each do |code| %>
-				<div class="list-group-item list-group-item-action">
-					<tr>
-						<td>
-							<h4><%= code.code_name %></h4><br>
-							<%= code.language %>
-						</td>
-					</tr>
-				</div>
-			<% end %>
-		</table>
+<div class="container">
+	<div class="row">
+		<div class="col-md-3">
+			<div class="sidebar_content">
+				<h3>言語リスト</h3>
+				<% Code.languages.keys.each do |lang| %>
+					<% num = 0 %>
+					<% Code.all.each do |code| %>
+						<% if lang == code.language %>
+							<% num += 1 %>
+						<% end %>
+					<% end %>
+					<p><%= lang %>　<span class="badge badge-primary"><%= num %></span></p>
+				<% end %>
+			</div>
+		</div>
+		<div class="col-md-9">
+			<h3>投稿一覧</h3>
+			<div class="list-group">
+				<table class="table">
+					<% @codes.each do |code| %>
+						<tr>
+							<td>
+								<h4><%= link_to code.code_name, code_path(code.id),{class: "list-group-item list-group-item-action"} %></h4>
+							</td>
+						</tr>
+					<% end %>
+				</table>
+			</div>
+		</div>
 	</div>
 </div>

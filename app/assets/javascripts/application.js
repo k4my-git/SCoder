@@ -13,5 +13,14 @@
 //= require rails-ujs
 //= require turbolinks
 //= require jquery
+//= require jquery_ujs
 //= require bootstrap-sprockets
 //= require_tree .
+
+window.onload = function() {
+  Particles.init({
+  selector: '.background',
+  sizeVariations: 50,
+  color: ['#00bbdd', '#404B69', '#DBEDF3'],
+  connectParticles: true
+})};

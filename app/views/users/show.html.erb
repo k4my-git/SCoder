@@ -1,8 +1,30 @@
-<div>
-	<div>
-		<h2>MyPage</h2>
+<div class="container">
+	<div class="row">
+		<div class="col-md-5 col-md-offset-1">
+			<h2>MyPage</h2>
+		</div>
+		<div>
+			<%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "100x100" %>
+
+			<%= @user.name %>
+
+			<%= link_to 'Edit Profile', edit_user_path(@user.id), class: "btn btn-default glyphicon glyphicon-wrench" %>
+		</div>
 	</div>
-	<div>
-		<%= @user.name %>
+	<div class="row">
+		<div>
+			<h4>投稿一覧</h4>
+			<table class="table">
+				<% @codes.each do |code| %>
+					<tr>
+						<td>
+							<%= code.code_name %><br>
+							<%= code.language %>
+						</td>
+					</tr>
+				<% end %>
+			</table>
+			
+		</div>
 	</div>
 </div>

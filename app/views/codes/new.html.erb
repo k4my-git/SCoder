@@ -1,19 +1,42 @@
-<div>
-	<div>
-		<h2>Code投稿ページ</h2>
-	</div>
-	<div>
-		<%= form_for(@new_code) do |c| %>
-			<%= c.label :code_name, "タイトル" %>
-			<%= c.text_field :code_name %>
-			<%= c.label :language, "言語" %>
-			<%= c.text_field :language %>
-			<%= c.label :file, "ソースコード" %>
-			<%= c.file_field :file %>
-			<%= c.label :codes_explanation, "解説" %>
-			<%= c.text_area :codes_explanation %>
-
-			<%= c.submit "投稿" %>
-		<% end %>
+<div class="container">
+	<div class="row">
+		<div>
+			<h2>Code投稿ページ</h2>
+		</div>
+		<div>
+			<table class="table">
+				<%= form_for(@new_code) do |c| %>
+					<tr>
+						<td>
+							<%= c.label :code_name, "タイトル" %>
+							<%= c.text_field :code_name %>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<%= c.label :language, "言語" %>
+							<%= c.select :language, Code.languages.keys.to_a, {prompt: "選択してください"} %>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<%= c.label :file, "ソースコード" %>
+							<%= c.file_field :file %>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<%= c.label :codes_explanation, "解説" %>
+							<%= c.text_area :codes_explanation %>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<%= c.submit "投稿" %>
+						</td>
+					</tr>
+				<% end %>
+			</table>
+		</div>
 	</div>
 </div>

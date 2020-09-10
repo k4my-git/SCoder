@@ -18,6 +18,7 @@ class CodesController < ApplicationController
       return
     else
       @new_code = Code.new(code_params)
+      @new_code.user_id = current_user.id
       @new_code.file = params[:code][:file].read
       @new_code.filename = params[:code][:file].original_filename
       if @new_code.save

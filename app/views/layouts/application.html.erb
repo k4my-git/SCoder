@@ -8,6 +8,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
   </head>
 
   <body>
@@ -18,9 +19,9 @@
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarEexample1">
             </button>
             <% if user_signed_in? %>
-              <p class="navbar-brand">SCoder</p>
+              <p class="navbar-brand"><%= link_to 'SCoder', root_path %></p>
             <% else %>
-              <a class="navbar-brand" href="/">SCoder</a>
+              <a class="navbar-brand" href="/"><%= link_to 'SCoder', root_path %></a>
             <% end %>
             <!--  -->
           </div>
@@ -28,6 +29,7 @@
             <ul class="nav navbar-nav navbar-right">
               <% if user_signed_in? %>
                 <li><%= link_to "CodeList", codes_path %></li>
+                <li><%= link_to "CodeUp", new_code_path %></li>
                 <li><%= link_to "MyPage", user_path(current_user) %></li>
               <% else %>
                 <li><%= link_to "CodeList", codes_path %></li>
