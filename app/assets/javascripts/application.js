@@ -20,9 +20,9 @@
 window.onload = function() {
 	Particles.init({
 	selector: '.background',
-	sizeVariations: 50,
+	sizeVariations: 20,
 	color: ['#00bbdd', '#404B69', '#DBEDF3'],
-	connectParticles: true
+	connectParticles: true,
 	responsive: [
 	    {
 	      	breakpoint: 768,
