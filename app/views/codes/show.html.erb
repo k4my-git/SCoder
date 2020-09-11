@@ -1,12 +1,13 @@
-<div>
-	<div><h2><%= @code.code_name %></h2></div>
-	<div>
-		<pre class="prettyprint">
-			<code>
-				<%= @code.file.force_encoding("UTF-8") %><br>
-			</code>
-		</pre>
-		<%= @code.codes_explanation %><br>
+<div class="container">
+	<div class="row">
+		<h2><%= @code.code_name %></h2>
 		<%= @code.language %>
+	</div>
+	<div class="text-right">
+		<%= link_to "Edit", edit_code_path(@code), class: "btn btn-success" %>
+	</div>
+	<div class="row">
+		<pre class="prettyprint"><%= @code.file.force_encoding("UTF-8") %><br></pre>
+		<%= @code.codes_explanation %><br>
 	</div>
 </div>

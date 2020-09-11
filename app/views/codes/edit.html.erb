@@ -1,2 +1,40 @@
-<h1>Codes#edit</h1>
-<p>Find me in app/views/codes/edit.html.erb</p>
+<div class="container">
+	<div class="row">
+		<h2>Edit Code</h2>
+		<div>
+			<%= form_for(@code) do |c| %>
+				<table class="table">
+					<tr>
+						<td>
+							<%= c.label :code_name, "タイトル" %>
+							<%= c.text_field :code_name %>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<%= c.label :language, "言語" %>
+							<%= c.select :language, Code.languages.keys.to_a, {prompt: "選択してください"} %>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<%= c.label :file, "ソースコード" %>
+							<%= c.file_field :file %>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<%= c.label :codes_explanation, "解説" %>
+							<%= c.text_area :codes_explanation %>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<%= c.submit "Update Code", class: "btn-success" %>
+						</td>
+					</tr>
+				</table>
+			<% end %>
+		</div>
+	</div>
+</div>

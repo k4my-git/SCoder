@@ -31,9 +31,17 @@ class CodesController < ApplicationController
   end
 
   def edit
+    @code = Code.find(params[:id])
   end
 
   def update
+    @code = Code.find(params[:id])
+    if @code.update(code_params)
+       flash[:notice] = "successfully"
+      redirect_to code_path(@code)
+    else
+      render :edit
+    end
   end
 
   private
