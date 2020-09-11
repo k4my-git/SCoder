@@ -10,12 +10,12 @@
   z-index: 0;
 }
 
-.top{
-	margin
-	: 0;
+.top {
+	margin: 0;
 	  
-	padding
-	: 0;
+	padding: 0;
+
+  height: 100%;
 
 	background-color: #005;
 }
@@ -64,4 +64,41 @@
   outline-color: transparent;
   outline-offset: 12px;
   text-shadow: 2px 2px 3px #000;
+}
+
+.neon{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  margin: 0;
+  padding: 0 20px;
+  font-size: 100px;
+  color: #00E0FF;
+  text-shadow: 0 0 50px #00E0FF;
+  letter-spacing: 5px;
+}
+
+.neon:after{
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 20px;
+  z-index: -1;
+  color: #00E0FF;
+  filter: blur(15px);
+}
+
+.neon:before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #00E0FF;
+  z-index: -2;
+  opacity: .3;
+  filter: blur(50px);
 }

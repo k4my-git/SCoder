@@ -13,31 +13,35 @@
   </head>
 
   <body>
-    <header id="header">
+    <header id="header" class="headers">
       <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-          <div class="nav navber-nav navbar-left">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarEexample1">
-            </button>
-            <% if user_signed_in? %>
-              <p class="navbar-brand"><%= link_to 'SCoder', root_path %></p>
-            <% else %>
-              <a class="navbar-brand" href="/"><%= link_to 'SCoder', root_path %></a>
-            <% end %>
-            <!--  -->
-          </div>
-          <div class="collapse navbar-collapse" id="navbarEexample1">
-            <ul class="nav navbar-nav navbar-right">
-              <% if user_signed_in? %>
-                <li><%= link_to "CodeList", codes_path %></li>
-                <li><%= link_to "CodeUp", new_code_path %></li>
-                <li><%= link_to "MyPage", user_path(current_user) %></li>
-              <% else %>
-                <li><%= link_to "CodeList", codes_path %></li>
-                <li><%= link_to "Sign_Up", new_user_registration_path %></li>
-                <li><%= link_to "Log_In", new_user_session_path %></li>
-              <% end %>
-            </ul>
+        <div class="headers">
+          <div class="container">
+            <div class="nav navber-nav navbar-left">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarEexample1">
+              </button>
+              <div class="head-title">
+                <% if user_signed_in? %>
+                  <p class="navbar-brand"><%= link_to 'SCoder', root_path, {class: "head-title"} %></p>
+                <% else %>
+                  <a class="navbar-brand" href="/"><%= link_to 'SCoder', root_path %></a>
+                <% end %>
+              </div>
+              <!--  -->
+            </div>
+            <div class="collapse navbar-collapse" id="navbarEexample1">
+              <ul class="nav navbar-nav navbar-right">
+                <% if user_signed_in? %>
+                  <li><%= link_to "CodeList", codes_path, {class: "head-link"} %></li>
+                  <li><%= link_to "CodeUp", new_code_path, {class: "head-link"} %></li>
+                  <li><%= link_to "MyPage", user_path(current_user), {class: "head-link"} %></li>
+                <% else %>
+                  <li><%= link_to "CodeList", codes_path, {class: "head-link"} %></li>
+                  <li><%= link_to "Sign_Up", new_user_registration_path, {class: "head-link"} %></li>
+                  <li><%= link_to "Log_In", new_user_session_path, {class: "head-link"} %></li>
+                <% end %>
+              </ul>
+            </div>
           </div>
         </div>
       </nav>
@@ -45,84 +49,86 @@
     <%= yield %>
     <!-- Footer -->
     <footer class="page-footer font-small blue pt-4">
+      <div class="footers">
 
-      <!-- Footer Links -->
-      <div class="container-fluid text-center text-md-left">
+        <!-- Footer Links -->
+        <div class="container-fluid text-center text-md-left">
 
-        <!-- Grid row -->
-        <div class="row">
+          <!-- Grid row -->
+          <div class="row">
 
-          <!-- Grid column -->
-          <div class="col-md-6 mt-md-0 mt-3">
+            <!-- Grid column -->
+            <div class="col-md-6 mt-md-0 mt-3">
 
-            <!-- Content -->
-            <h5 class="text-uppercase">Footer Content</h5>
-            <p>Here you can use rows and columns to organize your footer content.</p>
+              <!-- Content -->
+              <h5 class="text-uppercase">Footer Content</h5>
+              <p>Here you can use rows and columns to organize your footer content.</p>
+
+            </div>
+            <!-- Grid column -->
+
+            <hr class="clearfix w-100 d-md-none pb-3">
+
+            <!-- Grid column -->
+            <div class="col-md-3 mb-md-0 mb-3">
+
+              <!-- Links -->
+              <h5 class="text-uppercase">Links</h5>
+
+              <ul class="list-unstyled">
+                <li>
+                  <a href="#!">Link 1</a>
+                </li>
+                <li>
+                  <a href="#!">Link 2</a>
+                </li>
+                <li>
+                  <a href="#!">Link 3</a>
+                </li>
+                <li>
+                  <a href="#!">Link 4</a>
+                </li>
+              </ul>
+
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-3 mb-md-0 mb-3">
+
+              <!-- Links -->
+              <h5 class="text-uppercase">Links</h5>
+
+              <ul class="list-unstyled">
+                <li>
+                  <a href="#!">Link 1</a>
+                </li>
+                <li>
+                  <a href="#!">Link 2</a>
+                </li>
+                <li>
+                  <a href="#!">Link 3</a>
+                </li>
+                <li>
+                  <a href="#!">Link 4</a>
+                </li>
+              </ul>
+
+            </div>
+            <!-- Grid column -->
 
           </div>
-          <!-- Grid column -->
-
-          <hr class="clearfix w-100 d-md-none pb-3">
-
-          <!-- Grid column -->
-          <div class="col-md-3 mb-md-0 mb-3">
-
-            <!-- Links -->
-            <h5 class="text-uppercase">Links</h5>
-
-            <ul class="list-unstyled">
-              <li>
-                <a href="#!">Link 1</a>
-              </li>
-              <li>
-                <a href="#!">Link 2</a>
-              </li>
-              <li>
-                <a href="#!">Link 3</a>
-              </li>
-              <li>
-                <a href="#!">Link 4</a>
-              </li>
-            </ul>
-
-          </div>
-          <!-- Grid column -->
-
-          <!-- Grid column -->
-          <div class="col-md-3 mb-md-0 mb-3">
-
-            <!-- Links -->
-            <h5 class="text-uppercase">Links</h5>
-
-            <ul class="list-unstyled">
-              <li>
-                <a href="#!">Link 1</a>
-              </li>
-              <li>
-                <a href="#!">Link 2</a>
-              </li>
-              <li>
-                <a href="#!">Link 3</a>
-              </li>
-              <li>
-                <a href="#!">Link 4</a>
-              </li>
-            </ul>
-
-          </div>
-          <!-- Grid column -->
+          <!-- Grid row -->
 
         </div>
-        <!-- Grid row -->
+        <!-- Footer Links -->
 
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© 2020 Copyright:
+          <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
+        </div>
+        <!-- Copyright -->
       </div>
-      <!-- Footer Links -->
-
-      <!-- Copyright -->
-      <div class="footer-copyright text-center py-3">© 2020 Copyright:
-        <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
-      </div>
-      <!-- Copyright -->
 
     </footer>
     <!-- Footer -->

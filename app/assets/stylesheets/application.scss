@@ -16,12 +16,17 @@
 @import "bootstrap-sprockets";  /*ここを追加*/
 @import "bootstrap";            /*ここを追加*/
 
-body {
- padding-top: 70px;
+body, html {
+ padding-top: 20px;
+ height: 100%;
 }
 
-header {
-	background-color: #001155;
+.headers {
+	background:linear-gradient(#23BEFF, #1A009C);
+}
+
+.footers {
+	background:linear-gradient(#1A009C, #23BEFF);
 }
 
 footer {
@@ -32,4 +37,13 @@ footer {
 
 h2 {
 	font-family: 'Vollkorn', serif;
+}
+
+.head-title{
+	font-size: 30px;
+	color: #ffffff;
+}
+
+.head-link{
+	color: #00ffff;
 }
