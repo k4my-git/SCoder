@@ -9,7 +9,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Vollkorn rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Vollkorn rel='stylesheet'">
   </head>
 
   <body>
@@ -20,17 +20,14 @@
             <div class="nav navber-nav navbar-left">
               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarEexample1">
               </button>
-              <div class="head-title">
-                <% if user_signed_in? %>
-                  <p class="navbar-brand"><%= link_to 'SCoder', root_path, {class: "head-title"} %></p>
-                <% else %>
-                  <a class="navbar-brand" href="/"><%= link_to 'SCoder', root_path, {class: "head-title"} %></a>
-                <% end %>
-              </div>
+              <% if user_signed_in? %>
+                <p class="navbar-brand"><%= link_to 'SCoder', root_path, {class: "head-title"} %></p>
+              <% else %>
+                <p class="navbar-brand"><%= link_to 'SCoder', root_path, {class: "head-title"} %></p>
+              <% end %>
               <!--  -->
             </div>
             <div class="collapse navbar-collapse" id="navbarEexample1">
-              <font color="#fff">
               <ul class="nav navbar-nav navbar-right">
                 <% if user_signed_in? %>
                   <li><%= link_to "CodeList", codes_path, {class: "head-link"} %></li>
@@ -43,7 +40,6 @@
                   <li><%= link_to "Log_In", new_user_session_path, {class: "head-link"} %></li>
                 <% end %>
               </ul>
-              </font>
             </div>
           </div>
         </div>
