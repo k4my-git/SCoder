@@ -24,23 +24,26 @@
                 <% if user_signed_in? %>
                   <p class="navbar-brand"><%= link_to 'SCoder', root_path, {class: "head-title"} %></p>
                 <% else %>
-                  <a class="navbar-brand" href="/"><%= link_to 'SCoder', root_path %></a>
+                  <a class="navbar-brand" href="/"><%= link_to 'SCoder', root_path, {class: "head-title"} %></a>
                 <% end %>
               </div>
               <!--  -->
             </div>
             <div class="collapse navbar-collapse" id="navbarEexample1">
+              <font color="#fff">
               <ul class="nav navbar-nav navbar-right">
                 <% if user_signed_in? %>
                   <li><%= link_to "CodeList", codes_path, {class: "head-link"} %></li>
                   <li><%= link_to "CodeUp", new_code_path, {class: "head-link"} %></li>
                   <li><%= link_to "MyPage", user_path(current_user), {class: "head-link"} %></li>
+                  <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
                 <% else %>
                   <li><%= link_to "CodeList", codes_path, {class: "head-link"} %></li>
                   <li><%= link_to "Sign_Up", new_user_registration_path, {class: "head-link"} %></li>
                   <li><%= link_to "Log_In", new_user_session_path, {class: "head-link"} %></li>
                 <% end %>
               </ul>
+              </font>
             </div>
           </div>
         </div>
@@ -48,7 +51,7 @@
     </header>
     <%= yield %>
     <!-- Footer -->
-    <footer class="page-footer font-small blue pt-4">
+    <footer class="page-footer font-small white pt-4">
       <div class="footers">
 
         <!-- Footer Links -->
@@ -61,8 +64,8 @@
             <div class="col-md-6 mt-md-0 mt-3">
 
               <!-- Content -->
-              <h5 class="text-uppercase">Footer Content</h5>
-              <p>Here you can use rows and columns to organize your footer content.</p>
+                <h5 class="text-uppercase"><font color="#fff">SCoder</font></h5>
+                <p><font color="#fff">簡易的なソースコードを共有するサイトです</font></p>
 
             </div>
             <!-- Grid column -->
@@ -77,44 +80,12 @@
 
               <ul class="list-unstyled">
                 <li>
-                  <a href="#!">Link 1</a>
-                </li>
-                <li>
-                  <a href="#!">Link 2</a>
-                </li>
-                <li>
-                  <a href="#!">Link 3</a>
-                </li>
-                <li>
-                  <a href="#!">Link 4</a>
+                  <%= link_to "CodeList", codes_path, {class: "head-link"} %>
                 </li>
               </ul>
 
             </div>
             <!-- Grid column -->
-
-            <!-- Grid column -->
-            <div class="col-md-3 mb-md-0 mb-3">
-
-              <!-- Links -->
-              <h5 class="text-uppercase">Links</h5>
-
-              <ul class="list-unstyled">
-                <li>
-                  <a href="#!">Link 1</a>
-                </li>
-                <li>
-                  <a href="#!">Link 2</a>
-                </li>
-                <li>
-                  <a href="#!">Link 3</a>
-                </li>
-                <li>
-                  <a href="#!">Link 4</a>
-                </li>
-              </ul>
-
-            </div>
             <!-- Grid column -->
 
           </div>

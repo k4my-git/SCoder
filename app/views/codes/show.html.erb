@@ -4,10 +4,58 @@
 		<%= @code.language %>
 	</div>
 	<div class="text-right">
-		<%= link_to "Edit", edit_code_path(@code), class: "btn btn-success" %>
+		<% if @code.user == current_user %>
+			<%= link_to "Edit", edit_code_path(@code), class: "btn btn-success" %>
+	        <%= link_to "Delete", code_path(@code), method: :delete, class: "btn btn-danger pull-right" %>
+	    <% end %>
 	</div>
 	<div class="row">
 		<pre class="prettyprint"><%= @code.file.force_encoding("UTF-8") %><br></pre>
-		<%= @code.codes_explanation %><br>
+		<br>
+		解説:<%= @code.codes_explanation %><br>
 	</div>
+	<div>
+		<% if @code.favorited_by?(current_user) %>
+		  	<%= link_to code_favorites_path(@code), method: :delete do %>
+		  		<i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+		    	<%= @code.favorites.count %> いいね
+		  	<% end %>
+		<% else %>
+		  	<%= link_to code_favorites_path(@code), method: :post do %>
+		  		<i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+		    	<%= @code.favorites.count %> いいね
+		  	<% end %>
+		<% end %>
+	</div>
+	<div class="row">
+		<% @code.post_comments.each do |post_comment| %>
+			<table class="table">
+				<tr>
+					<td>Name:</td>
+					<td><%= post_comment.user.name %></td>
+				</tr>
+				<tr>
+					<td>PostTime:</td>
+					<td><%= post_comment.created_at.strftime('%Y/%m/%d') %></td>
+				</tr>
+				<tr>
+					<td>Comment:</td>
+					<td><%= post_comment.comment %></td>
+					<% if post_comment.user == current_user %>
+			            <div>
+			              	<%= link_to "削除", code_post_comment_path(post_comment.code, post_comment), method: :delete, class: "btn btn-danger pull-right" %>
+			            </div>
+			         <% end %>
+				</tr>
+			</table>
+		<% end %>
+	</div>
+	<%= form_for [@code, @post_comment] do |f| %>
+	  	<div class="row">
+	    	<div class="col-sm-12">
+	      		<%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "コメントをここに" %>
+	    	</div>
+	  	</div>
+	  	<%= f.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
+	<% end %>
 </div>

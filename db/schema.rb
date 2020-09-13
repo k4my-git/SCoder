@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_09_091501) do
+ActiveRecord::Schema.define(version: 2020_09_13_051325) do
 
   create_table "codes", force: :cascade do |t|
     t.string "code_name"
     t.text "codes_explanation"
-    t.integer "language", default: 0
+    t.integer "language", default: -1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.binary "file"
@@ -23,9 +23,24 @@ ActiveRecord::Schema.define(version: 2020_09_09_091501) do
     t.integer "user_id"
   end
 
+  create_table "favorites", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "code_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "languages", force: :cascade do |t|
     t.string "language_name"
     t.string "color"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "post_comments", force: :cascade do |t|
+    t.text "comment"
+    t.integer "user_id"
+    t.integer "code_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

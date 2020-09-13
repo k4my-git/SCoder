@@ -22,6 +22,8 @@
 						<tr>
 							<td>
 								<h4><%= link_to code.code_name, code_path(code.id),{class: "list-group-item list-group-item-action"} %></h4>
+								<%= code.post_comments.count %>件コメント 
+								<%= code.favorites.count %>いいね
 							</td>
 						</tr>
 					<% end %>
