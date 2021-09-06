@@ -4,6 +4,7 @@ class CodesController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
     @code = Code.find(params[:id])
     @post_comment = PostComment.new
   end
