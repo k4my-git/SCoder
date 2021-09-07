@@ -15,7 +15,7 @@
 					<tr>
 						<td>
 							<%= c.label :language, "言語" %>
-							<%= c.select :language, Code.languages.keys.to_a, {include_blank: true}, {prompt: "選択してください"} %>
+							<%= c.select :language, Code.languages.keys.to_a, {include_blank: false}, {prompt: "選択してください"} %>
 						</td>
 					</tr>
 					<tr>

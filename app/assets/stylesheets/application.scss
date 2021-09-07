@@ -17,8 +17,14 @@
 @import "bootstrap";            /*ここを追加*/
 
 body, html {
- padding-top: 20px;
- height: 100%;
+	display: flex;
+	flex-flow: column;
+ 	padding-top: 20px;
+ 	height: 100%;
+}
+
+.main {
+	flex: 1;
 }
 
 .headers {
